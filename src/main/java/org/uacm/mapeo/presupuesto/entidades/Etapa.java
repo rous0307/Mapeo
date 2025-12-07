@@ -2,19 +2,27 @@ package org.uacm.mapeo.presupuesto.entidades;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.time.LocalDate;
 
 @Entity
 @Data
-public class etapa {
+@Table(name = "etapa")
+public class Etapa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEtapa;
-    private String id_Proyecto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_proyecto", nullable = false)
+    private Proyecto proyecto;
+
     private String fase;
+
     private LocalDate fechaInicio;
+
     private LocalDate fechaFin;
 
+    @OneToOne(mappedBy = "etapa", cascade = CascadeType.ALL)
+    private Presupuesto presupuesto;
 }
