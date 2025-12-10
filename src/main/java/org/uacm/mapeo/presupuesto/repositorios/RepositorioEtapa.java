@@ -23,3 +23,4 @@ public interface RepositorioEtapa extends JpaRepository<Etapa, Integer> {
     @RestResource(path = "antes-de", rel = "etapasAntes")
     List<Etapa> findByFechaInicioBefore(LocalDate fecha);
 }
+

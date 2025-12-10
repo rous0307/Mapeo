@@ -14,9 +14,11 @@ import java.util.List;
 )
 public interface RepositorioProyecto extends JpaRepository<Proyecto, Integer> {
 
+    // Buscar por nombre que contenga texto
     @RestResource(path = "por-nombre", rel = "buscarNombre")
     List<Proyecto> findByNombreContaining(String nombre);
 
+    // Buscar proyectos con fechaInicio después de cierta fecha
     @RestResource(path = "despues-de", rel = "proyectosRecientes")
     List<Proyecto> findByFechaInicioAfter(LocalDate fecha);
 }

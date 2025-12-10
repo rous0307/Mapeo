@@ -5,8 +5,8 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity
-@Data
 @Table(name = "etapa")
+@Data
 public class Etapa {
 
     @Id
